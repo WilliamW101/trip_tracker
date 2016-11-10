@@ -4,18 +4,18 @@ class AddressesController < ApplicationController
   before_action :set_address, except: [:index, :new, :create]
 
   def index
-    @addresses = @locations.addresses
+    @addresses = Address.all
   end
 
   def show
   end
 
   def new
-    @address = @location.addresses.new
+    @address = Address.new
   end
 
   def create
-    @address = @location.addresses.new(address_params)
+    @address = Address.new(address_params)
     if @address.save
       redirect_to trip_location_address_path(@trip, @location, @address)
     else
@@ -41,7 +41,7 @@ class AddressesController < ApplicationController
 
   private
     def set_address
-      @address = @location.addresses.find(params[:id])
+      @address = Address.find(params[:id])
     end
 
     def find_location
@@ -50,7 +50,7 @@ class AddressesController < ApplicationController
 
     def find_trip
       @trip = Trip.find(params[:trip_id])
-    end 
+    end
 
     def address_params
       params.require(:address).permit(:loc, :city, :state, :zip)

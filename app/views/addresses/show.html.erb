@@ -1,2 +1,21 @@
-<h1>Addresses#show</h1>
-<p>Find me in app/views/addresses/show.html.erb</p>
+<h1> <%= @address.loc %> </h1>
+<hr />
+
+<div>
+
+  <% if @address.city %>
+    <p> City: <%= @address.city %> </p>
+  <% end %>
+
+  <% if @address.state %>
+    <p> State: <%= @address.state %> </p>
+  <% end %>
+
+  <% if @address.zip %>
+    <p> Zip: <%= @address.zip %> </p>
+  <% end %>
+
+</div>
+
+<%= link_to 'Location Page', trip_location_path %> <br />
+<%= link_to 'Trip Page', trip_path(@trip) %>

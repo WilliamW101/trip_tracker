@@ -1,4 +1,6 @@
 <h1> Location: <%= @location.place %> </h1>
 <hr />
 
-<%= link_to 'Locations', trip_locations_path %>
+<%= link_to 'Address', trip_location_addresses_path(@trip, @location) %> <br />
+<%= link_to 'Locations', trip_locations_path %> <br />
+<%= link_to 'Trip Page', trip_path(@trip) %>

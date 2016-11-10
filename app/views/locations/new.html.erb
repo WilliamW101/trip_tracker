@@ -1,13 +1,4 @@
 <h1> New Location </h1>
 <hr />
 
-<% if @location.errors.any? %>
-  <h4> <%= pluralize(@location.errors.count, 'Error', 'Errors') %> Add a Location </h4>
-  <ul>
-    <% @location.errors.full_message.each do |location| %>
-      <li> <%= message %> </li>
-      <% end %>
-    </ul>
-  <% end %>
-
-<%= render(partial: 'form') %> 
+<%= render(partial: 'form') %>

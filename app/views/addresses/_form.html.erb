@@ -1,0 +1,24 @@
+<% if @address.errors.any? %>
+  <h5> <%= pluralize(@address.errors.count, 'Error', 'Errors') %> Create Address </h5>
+  <ul>
+      <% @address.errors.full_messages.each do |message| %>
+          <li> <%= message %> </li>
+      <% end %>
+  </ul>
+<% end %>
+
+<%= form_for [@trip, @location, @address] do |f| %>
+  <%= f.label :loc %>
+  <%= f.text_field :loc %>
+
+  <%= f.label :city %>
+  <%= f.text_field :city %>
+  <br />
+  <%= f.label :state %>
+  <%= f.text_field :state %>
+
+  <%= f.label :zip %>
+  <%= f.number_field :zip %>
+  <br />
+  <%= f.submit %>
+<% end %>
